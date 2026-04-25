@@ -139,7 +139,7 @@ function HeroSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative w-full glass-card p-6 border border-white/10"
+              className="relative w-full glass-card p-6 border-2 border-white/20 shadow-2xl"
             >
               <div className="flex flex-col gap-4">
                 <div className="flex gap-2 items-start">
@@ -212,7 +212,7 @@ function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-green-whatsapp/30 transition-colors"
+              className="glass-card p-6 sm:p-8 border-2 border-white/10 hover:border-primary-cyan/40 transition-all duration-300 shadow-xl"
             >
               <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan"></span>
@@ -250,7 +250,7 @@ function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col text-center sm:text-left sm:items-start items-center glass p-6 rounded-2xl border border-white/5"
+              className="flex flex-col text-center sm:text-left sm:items-start items-center glass-card p-6 border-2 border-white/10 shadow-xl"
             >
               <span className="text-3xl font-black text-white/60 mb-4">{step.num}</span>
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
