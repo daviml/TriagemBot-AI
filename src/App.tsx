@@ -29,12 +29,12 @@ export default function App() {
 
 function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 glass border-b border-white/10 mx-4 sm:mx-8 lg:mx-auto max-w-7xl mt-4 rounded-2xl md:rounded-full px-2">
+    <nav className="sticky top-0 z-50 bg-brand-navy border-b border-white/10 mx-4 sm:mx-8 lg:mx-auto max-w-7xl mt-4 rounded-2xl md:rounded-full px-2 shadow-2xl shadow-black/50">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-whatsapp rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-green-whatsapp/20">
-              T
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-whatsapp/20 to-transparent flex items-center justify-center border border-green-whatsapp/30 shadow-inner">
+              <Bot className="w-6 h-6 text-green-whatsapp" />
             </div>
             <span className="font-bold text-xl text-white tracking-tight">TriagemBot <span className="text-green-whatsapp">AI</span></span>
           </div>
