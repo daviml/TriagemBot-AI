@@ -84,7 +84,7 @@ function Navbar() {
               href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20a%20IA."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-primary hover:opacity-90 text-white px-5 py-2 rounded-lg font-medium text-sm transition-all shadow-lg shadow-primary-cyan/20"
+              className="bg-gradient-primary hover:opacity-90 text-white px-3 sm:px-5 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all shadow-lg shadow-primary-cyan/20 whitespace-nowrap"
             >
               Testar Agora
             </a>
@@ -120,7 +120,7 @@ function HeroSection() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-2">
                 <a
-                  href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Quero%20testar%20o%20TriagemBot."
+                  href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Quero%20testar%20o%20AceleraBot."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 rounded-xl font-bold text-base transition-all shadow-xl shadow-primary-cyan/20 flex items-center justify-center gap-2 group"
