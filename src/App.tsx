@@ -9,11 +9,11 @@ import {
   Settings, Zap, PhoneCall
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function App() {
   return (
-    <div className="min-h-screen font-sans selection:bg-green-whatsapp/30 selection:text-white pb-12">
+    <div className="min-h-screen font-sans selection:bg-green-whatsapp/30 selection:text-white pb-12 scroll-smooth">
       <Navbar />
       <main className="flex flex-col gap-6">
         <HeroSection />
@@ -28,27 +28,63 @@ export default function App() {
 }
 
 function Navbar() {
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "-20% 0px -20% 0px" }
+    );
+
+    document.querySelectorAll('section[id]').forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const navLinks = [
+    { name: 'A Solução', href: '#solucao', id: 'solucao' },
+    { name: 'Como Funciona', href: '#como-funciona', id: 'como-funciona' },
+    { name: 'Preços', href: '#precos', id: 'precos' },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 bg-brand-navy border-b border-white/10 mx-4 sm:mx-8 lg:mx-auto max-w-7xl mt-4 rounded-2xl md:rounded-full px-2 shadow-2xl shadow-black/50">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-whatsapp/20 to-transparent flex items-center justify-center border border-green-whatsapp/30 shadow-inner">
-              <Bot className="w-6 h-6 text-green-whatsapp" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-purple/20 to-transparent flex items-center justify-center border border-primary-purple/30 shadow-inner">
+              <Bot className="w-6 h-6 text-primary-cyan" />
             </div>
-            <span className="font-bold text-xl text-white tracking-tight">TriagemBot <span className="text-green-whatsapp">AI</span></span>
+            <span className="font-bold text-xl text-white tracking-tight">Acelera<span className="text-gradient">Bot</span></span>
           </div>
-          <div className="hidden md:flex space-x-8">
-            <a href="#solucao" className="text-slate-400 hover:text-white font-medium text-sm transition-colors">A Solução</a>
-            <a href="#como-funciona" className="text-slate-400 hover:text-white font-medium text-sm transition-colors">Como Funciona</a>
-            <a href="#precos" className="text-slate-400 hover:text-white font-medium text-sm transition-colors">Preços</a>
+          <div className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.id
+                  ? 'bg-white/15 text-white shadow-lg border border-white/10'
+                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  }`}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
           <div>
             <a
               href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20a%20IA."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-whatsapp hover:bg-green-600 text-white px-5 py-2 rounded-lg font-medium text-sm transition-all shadow-lg shadow-green-whatsapp/20"
+              className="bg-gradient-primary hover:opacity-90 text-white px-5 py-2 rounded-lg font-medium text-sm transition-all shadow-lg shadow-primary-cyan/20"
             >
               Testar Agora
             </a>
@@ -72,11 +108,11 @@ function HeroSection() {
 
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 w-fit text-xs font-semibold text-green-400 mb-6">
+              <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 w-fit text-xs font-semibold text-primary-cyan mb-6">
                 • IA + SITE: O ECOSSISTEMA COMPLETO DE CAPTAÇÃO
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-white pt-2">
-                Pare de perder vendas porque seu WhatsApp demora para responder.
+                Pare de perder vendas porque seu <span className="text-gradient">WhatsApp demora</span> para responder.
               </h1>
               <p className="text-lg sm:text-xl text-slate-400 mb-8 leading-relaxed max-w-2xl">
                 Um assistente de IA que atende em 5 segundos, responde dúvidas e entrega leads prontos direto no seu celular. 24/7.
@@ -87,10 +123,10 @@ function HeroSection() {
                   href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Quero%20testar%20o%20TriagemBot."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center gap-2 bg-green-whatsapp hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base transition-all shadow-lg shadow-green-whatsapp/20"
+                  className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 rounded-xl font-bold text-base transition-all shadow-xl shadow-primary-cyan/20 flex items-center justify-center gap-2 group"
                 >
-                  <MessageSquareWarning className="w-5 h-5" />
                   Testar a IA na Prática agora
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
@@ -117,13 +153,13 @@ function HeroSection() {
                   <div className="bg-green-whatsapp/20 border border-green-500/30 p-3 rounded-2xl rounded-tr-none text-xs sm:text-sm leading-relaxed text-green-100/90 shadow-sm text-right">
                     "Olá! Fazemos sim. A revisão completa para esse modelo inclui limpeza dos bicos, troca de velas, troca de óleo. O valor é 350. Gostaria de agendar um horário?"
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-green-whatsapp flex-shrink-0 shadow-lg shadow-green-whatsapp/30 flex items-center justify-center">
-                    <span className="text-white font-bold text-xs">T</span>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-purple to-primary-cyan flex-shrink-0 shadow-lg shadow-primary-cyan/30 flex items-center justify-center">
+                    <Bot className="w-4 h-4 text-white" />
                   </div>
                 </div>
 
-                <div className="mt-4 p-4 bg-white/5 rounded-2xl border-l-4 border-green-500 glass shadow-2xl backdrop-blur-md">
-                  <p className="text-[10px] uppercase font-bold text-green-400 mb-1">Notificação de Lead Hot 🔥</p>
+                <div className="mt-4 p-4 bg-white/5 rounded-2xl border-l-4 border-primary-cyan glass shadow-2xl backdrop-blur-md">
+                  <p className="text-[10px] uppercase font-bold text-primary-cyan mb-1">Notificação de Lead Hot 🔥</p>
                   <p className="text-sm font-semibold text-white">Novo Cliente: João | Carro: Vectra 97</p>
                   <p className="text-xs text-slate-400 italic mt-1">Status: Pronto para fechar Orçamento.</p>
                 </div>
@@ -157,14 +193,14 @@ function FeaturesSection() {
   ];
 
   return (
-    <section id="solucao" className="py-16 relative">
+    <section id="solucao" className="py-16 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Chatbots tradicionais irritam seus clientes. <span className="text-green-whatsapp">Nós somos diferentes.</span>
+            Chatbots tradicionais irritam seus clientes. <span className="text-gradient">Nós somos diferentes.</span>
           </h2>
           <p className="text-base text-slate-400">
-            A TriagemBot usa a linguagem natural para conversar, entender a real necessidade e filtrar curiosos de compradores de verdade.
+            A AceleraBot usa a linguagem natural para conversar, entender a real necessidade e filtrar curiosos de compradores de verdade.
           </p>
         </div>
 
@@ -179,7 +215,7 @@ function FeaturesSection() {
               className="glass p-6 sm:p-8 rounded-2xl border border-white/5 hover:border-green-whatsapp/30 transition-colors"
             >
               <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-whatsapp"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary-cyan"></span>
                 {feature.title}
               </h3>
               <p className="text-sm text-slate-400 leading-relaxed">{feature.description}</p>
@@ -199,7 +235,7 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section id="como-funciona" className="py-20 border-y border-white/5 relative">
+    <section id="como-funciona" className="py-20 border-y border-white/5 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-white mb-4">Como Funciona</h2>
@@ -216,7 +252,7 @@ function HowItWorksSection() {
               transition={{ delay: index * 0.1 }}
               className="flex flex-col text-center sm:text-left sm:items-start items-center glass p-6 rounded-2xl border border-white/5"
             >
-              <span className="text-3xl font-black text-green-whatsapp/100 mb-4">{step.num}</span>
+              <span className="text-3xl font-black text-white/60 mb-4">{step.num}</span>
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
               <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
             </motion.div>
@@ -229,7 +265,7 @@ function HowItWorksSection() {
 
 function PricingSection() {
   return (
-    <section id="precos" className="py-20 relative">
+    <section id="precos" className="py-20 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-white mb-4">Escolha o nível de automação para o seu negócio</h2>
@@ -239,7 +275,7 @@ function PricingSection() {
           {/* Card 1: Plano Motor */}
           <div className="glass-card flex flex-col p-8 border border-white/10 hover:border-white/20 transition-colors shadow-xl relative order-2 md:order-1 mt-4 md:mt-0">
             <h3 className="text-2xl font-bold text-white mb-2">Plano Motor</h3>
-            <p className="text-green-whatsapp text-sm font-medium mb-6">A Inteligência no seu WhatsApp</p>
+            <p className="text-primary-cyan text-sm font-medium mb-6">A Inteligência no seu WhatsApp</p>
 
             <p className="text-sm text-slate-300 mb-6 bg-white/5 p-4 rounded-xl">
               <strong className="text-white">Público-alvo:</strong> Ideal para quem já tem site ou presença forte no Instagram.
@@ -249,19 +285,19 @@ function PricingSection() {
               <p className="text-sm font-bold text-white mb-4">O que está incluso:</p>
               <ul className="space-y-4">
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Configuração do Assistente de IA no seu número atual.</span>
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Treinamento da IA com os dados da sua empresa (horários, serviços, preços).</span>
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Fluxo de qualificação personalizada (triagem de leads).</span>
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Respostas automáticas para FAQs.</span>
                 </li>
               </ul>
@@ -284,7 +320,7 @@ function PricingSection() {
               href="#"
               className="block w-full text-center bg-white/5 hover:bg-white/10 text-white border border-white/10 py-4 rounded-xl font-bold text-sm transition-all"
             >
-              Quero apenas o TriagemBot
+              Quero apenas o AceleraBot
             </a>
           </div>
 
@@ -296,7 +332,7 @@ function PricingSection() {
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-2 pt-2">Ecossistema Completo</h3>
-            <p className="text-green-whatsapp text-sm font-medium mb-6">O Funil de Vendas Definitivo</p>
+            <p className="text-primary-cyan text-sm font-medium mb-6">O Funil de Vendas Definitivo</p>
 
             <p className="text-sm text-slate-300 mb-6 bg-white/5 p-4 rounded-xl border border-green-whatsapp/20">
               <strong className="text-white">Público-alvo:</strong> Perfeito para quem quer captar novos clientes via anúncios e precisa de um site que vende.
@@ -306,19 +342,19 @@ function PricingSection() {
               <p className="text-sm font-bold text-white mb-4">O que está incluso:</p>
               <ul className="space-y-4">
                 <li className="flex gap-3 text-white text-sm font-semibold p-3 bg-white/5 rounded-lg border border-white/5">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>TUDO do Plano Motor, e mais:</span>
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Criação de Landing Page de Alta Conversão otimizada para Ads.</span>
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Hospedagem inclusa (Você não se preocupa com servidores).</span>
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-green-whatsapp shrink-0 mt-0.5" />
+                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
                   <span>Botão de IA Flutuante (Integração nativa entre site e o seu assistente).</span>
                 </li>
               </ul>
@@ -340,7 +376,7 @@ function PricingSection() {
 
             <a
               href="#"
-              className="block w-full text-center bg-green-whatsapp hover:bg-green-600 text-white py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-green-whatsapp/20"
+              className="block w-full text-center bg-gradient-primary hover:opacity-90 text-white py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-primary-cyan/20"
             >
               Quero o Ecossistema Completo
             </a>
@@ -402,13 +438,13 @@ function Footer() {
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1 flex flex-col gap-2">
-            <span className="font-bold text-sm text-white tracking-tight">TriagemBot <span className="text-green-whatsapp">AI</span></span>
-            <p className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">© {new Date().getFullYear()} TriagemBot</p>
+            <span className="font-bold text-sm text-white tracking-tight">Acelera<span className="text-gradient">Bot</span></span>
+            <p className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">© {new Date().getFullYear()} AceleraBot</p>
             <p className="text-[10px] text-slate-500">Tecnologia para negócios locais</p>
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold text-white">Pricing</p>
-            <p className="text-[10px] text-slate-400">Único: R$ 497 | Mensal: R$ 297</p>
+            <p className="text-[10px] text-slate-400">Único: R$ 997 | Mensal: R$ 297</p>
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold text-white">Legal</p>
