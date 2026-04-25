@@ -270,7 +270,7 @@ function PricingSection() {
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-slate-400 text-sm">Setup:</span>
-                <span className="text-white font-bold">R$ 497</span>
+                <span className="text-white font-bold">R$ 997</span>
                 <span className="text-slate-500 text-xs">(Pagamento único)</span>
               </div>
               <div className="flex items-end gap-2">
@@ -327,8 +327,8 @@ function PricingSection() {
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-slate-400 text-sm">Setup:</span>
-                <span className="text-green-400 font-bold">R$ 1.497</span>
-                <span className="text-slate-500 text-xs">(Valor promocional)</span>
+                <span className="text-green-400 font-bold">R$ 1.997</span>
+                <span className="text-slate-500 text-xs">(Pagamento único)</span>
               </div>
               <div className="flex items-end gap-2 flex-wrap sm:flex-nowrap">
                 <span className="text-slate-400 text-sm mb-1">Manutenção:</span>
