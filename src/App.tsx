@@ -6,10 +6,16 @@
 import {
   Bot, MessageSquareWarning, Filter, BellRing,
   ChevronDown, Smartphone, ArrowRight, Check,
-  Settings, Zap, PhoneCall
+  Settings, Zap, PhoneCall, Sparkles, User
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
+
+const IAraText = ({ className = "" }: { className?: string }) => (
+  <span className={`inline-flex items-center ${className}`}>
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400 font-bold tracking-tight">Ia</span>ra
+  </span>
+);
 
 export default function App() {
   return (
@@ -56,14 +62,14 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-brand-navy border-b border-white/10 mx-4 sm:mx-8 lg:mx-auto max-w-7xl mt-4 rounded-2xl md:rounded-full px-2 shadow-2xl shadow-black/50">
+    <nav className="sticky top-0 z-50 bg-[#1A1025]/80 backdrop-blur-md border-b border-white/5 mx-4 sm:mx-8 lg:mx-auto max-w-7xl mt-4 rounded-2xl md:rounded-full px-2 shadow-2xl shadow-black/50">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-purple/20 to-transparent flex items-center justify-center border border-primary-purple/30 shadow-inner">
-              <Bot className="w-6 h-6 text-primary-cyan" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500/20 to-rose-400/10 flex items-center justify-center border border-pink-500/30 shadow-inner">
+              <Sparkles className="w-5 h-5 text-pink-400" />
             </div>
-            <span className="font-bold text-xl text-white tracking-tight">Acelera<span className="text-gradient">Bot</span></span>
+            <IAraText className="font-semibold text-xl text-white tracking-tight" />
           </div>
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -71,8 +77,8 @@ function Navbar() {
                 key={link.id}
                 href={link.href}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === link.id
-                  ? 'bg-white/15 text-white shadow-lg border border-white/10'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-white/10 text-white shadow-lg border border-white/5'
+                  : 'text-purple-200/60 hover:text-white hover:bg-white/5'
                   }`}
               >
                 {link.name}
@@ -81,10 +87,8 @@ function Navbar() {
           </div>
           <div>
             <a
-              href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20testar%20a%20IA."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-primary hover:opacity-90 text-white px-3 sm:px-5 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all shadow-lg shadow-primary-cyan/20 whitespace-nowrap"
+              href="#testar"
+              className="bg-gradient-to-r from-pink-500 to-rose-400 hover:opacity-90 text-white px-4 sm:px-6 py-2.5 rounded-full font-medium text-xs sm:text-sm transition-all shadow-lg shadow-pink-500/25 whitespace-nowrap"
             >
               Testar Agora
             </a>
@@ -99,8 +103,8 @@ function HeroSection() {
   return (
     <section className="text-white overflow-hidden relative pt-12 pb-16 lg:pt-20 lg:pb-24">
       {/* Decorative gradient from design */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none">
-        <div className="absolute inset-0 bg-green-whatsapp/10 blur-3xl rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none">
+        <div className="absolute inset-0 bg-fuchsia-900/20 blur-[100px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -108,29 +112,28 @@ function HeroSection() {
 
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 w-fit text-xs font-semibold text-primary-cyan mb-6">
-                • IA + SITE: O ECOSSISTEMA COMPLETO DE CAPTAÇÃO
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-400/20 w-fit text-xs font-medium text-purple-300 mb-8 backdrop-blur-sm">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>CONHEÇA SUA NOVA RECEPCIONISTA DIGITAL</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-white pt-2">
-                Pare de perder vendas porque seu <span className="text-gradient">WhatsApp demora</span> para responder.
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] mb-6 text-white pt-2">
+                Pare de perder vendas porque seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">WhatsApp</span> demora para responder.
               </h1>
-              <p className="text-lg sm:text-xl text-slate-400 mb-8 leading-relaxed max-w-2xl">
-                Um assistente de IA que atende em 5 segundos, responde dúvidas e entrega leads prontos direto no seu celular. 24/7.
+
+              <p className="text-lg sm:text-xl text-purple-100/70 mb-10 leading-relaxed max-w-2xl font-light">
+                Conheça a Iara: sua atendente virtual 100% personalizável. Ela aprende o jeito da sua empresa falar, atende em segundos e entrega clientes prontos para fechar negócio.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-2">
                 <a
-                  href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Quero%20testar%20o%20AceleraBot."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-primary hover:opacity-90 text-white px-8 py-4 rounded-xl font-bold text-base transition-all shadow-xl shadow-primary-cyan/20 flex items-center justify-center gap-2 group"
+                  href="#testar"
+                  className="bg-gradient-to-r from-pink-500 to-rose-400 hover:scale-[1.02] hover:shadow-pink-500/40 text-white px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 shadow-xl shadow-pink-500/20 flex items-center justify-center gap-2 group"
                 >
-                  Testar a IA na Prática agora
+                  Conhecer a Iara na prática
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
-
-
             </motion.div>
           </div>
 
@@ -139,29 +142,46 @@ function HeroSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative w-full glass-card p-6 border-2 border-white/20 shadow-2xl"
+              className="relative w-full bg-[#1A1025]/60 backdrop-blur-xl p-6 rounded-3xl border border-purple-500/20 shadow-2xl shadow-purple-900/50"
             >
-              <div className="flex flex-col gap-4">
-                <div className="flex gap-2 items-start">
-                  <div className="w-8 h-8 rounded-full bg-slate-700 flex-shrink-0" />
-                  <div className="bg-slate-800/80 border border-white/5 p-3 rounded-2xl rounded-tl-none text-xs sm:text-sm leading-relaxed text-slate-200 shadow-sm">
-                    "Oi! Quero saber se vocês fazem revisão em Onix 2022 e quanto custa?"
+              <div className="flex flex-col gap-5">
+                {/* User Message */}
+                <div className="flex gap-3 items-end">
+                  <div className="w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center flex-shrink-0 border border-white/5">
+                    <User className="w-4 h-4 text-slate-300" />
+                  </div>
+                  <div className="bg-slate-800/80 border border-white/5 p-4 rounded-2xl rounded-bl-sm text-sm leading-relaxed text-slate-200 shadow-sm max-w-[85%]">
+                    "Bom dia! Gostaria de agendar uma consulta para amanhã na parte da tarde. Tem algum horário?"
                   </div>
                 </div>
 
-                <div className="flex gap-2 items-start justify-end">
-                  <div className="bg-green-whatsapp/20 border border-green-500/30 p-3 rounded-2xl rounded-tr-none text-xs sm:text-sm leading-relaxed text-green-100/90 shadow-sm text-right">
-                    "Olá! Fazemos sim. A revisão completa para esse modelo inclui limpeza dos bicos, troca de velas, troca de óleo. O valor é 350. Gostaria de agendar um horário?"
+                {/* Iara Message */}
+                <div className="flex gap-3 items-end justify-end">
+                  <div className="bg-gradient-to-br from-rose-950/60 to-purple-950/60 border border-pink-500/20 p-4 rounded-2xl rounded-br-sm text-sm leading-relaxed text-pink-50 shadow-sm max-w-[85%]">
+                    "Olá! Aqui é a Iara, assistente virtual da clínica. Temos horários disponíveis amanhã às 14h e às 16h30. Qual fica melhor para você?"
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-purple to-primary-cyan flex-shrink-0 shadow-lg shadow-primary-cyan/30 flex items-center justify-center">
-                    <Bot className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-400 flex-shrink-0 shadow-lg shadow-pink-500/30 flex items-center justify-center font-bold text-white text-sm border border-white/20">
+                    I
                   </div>
                 </div>
 
-                <div className="mt-4 p-4 bg-white/5 rounded-2xl border-l-4 border-primary-cyan glass shadow-2xl backdrop-blur-md">
-                  <p className="text-[10px] uppercase font-bold text-primary-cyan mb-1">Notificação de Lead Hot 🔥</p>
-                  <p className="text-sm font-semibold text-white">Novo Cliente: João | Carro: Vectra 97</p>
-                  <p className="text-xs text-slate-400 italic mt-1">Status: Pronto para fechar Orçamento.</p>
+                {/* Notification Card */}
+                <div className="mt-2 p-4 bg-[#1A1025]/80 rounded-2xl border-l-4 border-rose-400 border-t border-r border-b border-white/5 shadow-2xl relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-rose-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative z-10 flex items-start gap-3">
+                    <div className="bg-rose-500/20 p-2 rounded-lg">
+                      <Zap className="w-5 h-5 text-rose-400 fill-rose-400/20" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white flex items-center gap-1.5">
+                        <span className="text-lg">🔥</span> Novo Agendamento: Maria
+                      </p>
+                      <p className="text-xs text-purple-200/60 mt-1 flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        Status: Horário Confirmado.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -197,10 +217,11 @@ function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Chatbots tradicionais irritam seus clientes. <span className="text-gradient">Nós somos diferentes.</span>
+            Chatbots tradicionais irritam seus clientes. <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-rose-400">A Iara é diferente.</span>
           </h2>
-          <p className="text-base text-slate-400">
-            A AceleraBot usa a linguagem natural para conversar, entender a real necessidade e filtrar curiosos de compradores de verdade.
+          <p className="text-base text-purple-100/60 leading-relaxed font-light">
+            Totalmente moldável ao seu negócio, a Iara usa linguagem natural para conversar, entender a real necessidade e filtrar curiosos, com a mesma educação de um humano.
           </p>
         </div>
 
@@ -268,123 +289,156 @@ function PricingSection() {
     <section id="precos" className="py-20 relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">Escolha o nível de automação para o seu negócio</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Escolha o plano ideal para você</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto pt-4 md:pt-0">
-          {/* Card 1: Plano Motor */}
-          <div className="glass-card flex flex-col p-8 border-2 border-white/30 bg-slate-900/40 hover:border-white/50 transition-colors shadow-xl relative order-2 md:order-1 mt-4 md:mt-0">
-            <h3 className="text-2xl font-bold text-white mb-2">Plano Motor</h3>
-            <p className="text-primary-cyan text-sm font-medium mb-6">A Inteligência no seu WhatsApp</p>
-
-            <p className="text-sm text-slate-300 mb-6 bg-white/5 p-4 rounded-xl">
-              <strong className="text-white">Público-alvo:</strong> Ideal para quem já tem site ou presença forte no Instagram.
-            </p>
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto pt-4 lg:pt-0">
+          {/* Card 1: Página Essencial */}
+          <div className="glass-card flex flex-col p-8 border-2 border-white/5 hover:border-pink-500/30 transition-colors shadow-xl bg-[#1A1025]/40 h-full">
+            <h3 className="text-2xl font-bold text-white mb-2">Página Essencial</h3>
+            <p className="text-purple-300 text-sm font-medium mb-6">Apenas a vitrine digital do seu negócio.</p>
 
             <div className="mb-6 flex-1">
               <p className="text-sm font-bold text-white mb-4">O que está incluso:</p>
               <ul className="space-y-4">
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Configuração do Assistente de IA no seu número atual.</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Landing Page de alta conversão.</span>
                 </li>
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Treinamento da IA com os dados da sua empresa (horários, serviços, preços).</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Design focado no seu negócio.</span>
                 </li>
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Fluxo de qualificação personalizada (triagem de leads).</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Otimizada para carregar rápido.</span>
                 </li>
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Respostas automáticas para FAQs.</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Botão direto para seu WhatsApp atual.</span>
                 </li>
               </ul>
             </div>
 
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-slate-400 text-sm">Setup:</span>
-                <span className="text-white font-bold">R$ 997</span>
-                <span className="text-slate-500 text-xs">(Pagamento único)</span>
+                <span className="text-slate-400 text-sm">Implantação:</span>
+                <span className="text-white font-bold">R$ 995</span>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-slate-400 text-sm mb-1">Manutenção:</span>
-                <span className="text-3xl font-extrabold text-white">R$ 297</span>
+                <span className="text-3xl font-extrabold text-white">R$ 99</span>
                 <span className="text-slate-400 text-xs mb-1.5">/mês</span>
               </div>
             </div>
 
             <a
               href="#"
-              className="block w-full text-center bg-white/5 hover:bg-white/10 text-white border border-white/10 py-4 rounded-xl font-bold text-sm transition-all"
+              className="block w-full text-center bg-transparent border border-pink-500 hover:bg-pink-500/10 text-pink-400 py-4 rounded-xl font-bold text-sm transition-all"
             >
-              Quero apenas o AceleraBot
+              Quero meu site
             </a>
           </div>
 
-          {/* Card 2: Plano Ecossistema Completo */}
-          <div className="glass-card flex flex-col p-8 border-2 border-primary-cyan/60 hover:border-primary-cyan transition-colors shadow-2xl shadow-primary-cyan/20 relative bg-slate-900/60 order-1 md:order-2">
-            {/* Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-primary text-white text-xs font-bold px-5 py-2 rounded-full uppercase tracking-wider shadow-lg shadow-primary-cyan/20 whitespace-nowrap border border-white/10">
-              Mais Popular
-            </div>
-
-            <h3 className="text-2xl font-bold text-white mb-2 pt-2">Ecossistema Completo</h3>
-            <p className="text-primary-cyan text-sm font-medium mb-6">O Funil de Vendas Definitivo</p>
-
-            <p className="text-sm text-slate-300 mb-6 bg-white/5 p-4 rounded-xl border border-primary-cyan/10">
-              <strong className="text-white">Público-alvo:</strong> Perfeito para quem quer captar novos clientes via anúncios e precisa de um site que vende.
-            </p>
+          {/* Card 2: Iara Essencial */}
+          <div className="glass-card flex flex-col p-8 border-2 border-white/5 hover:border-pink-500/30 transition-colors shadow-xl bg-[#1A1025]/40 h-full">
+            <h3 className="text-2xl font-bold text-white mb-2">Iara Essencial</h3>
+            <p className="text-purple-300 text-sm font-medium mb-6">A sua nova recepcionista no WhatsApp.</p>
 
             <div className="mb-6 flex-1">
               <p className="text-sm font-bold text-white mb-4">O que está incluso:</p>
               <ul className="space-y-4">
-                <li className="flex gap-3 text-white text-sm font-semibold p-3 bg-white/5 rounded-lg border border-white/5">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>TUDO do Plano Motor, e mais:</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>IA de vendas humanizada.</span>
                 </li>
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Criação de Landing Page de Alta Conversão otimizada para Ads.</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Atendimento de dúvidas frequentes.</span>
                 </li>
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Hospedagem inclusa (Você não se preocupa com servidores).</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Integração simples via QR Code.</span>
                 </li>
-                <li className="flex gap-3 text-slate-300 text-sm">
-                  <Check className="w-5 h-5 text-primary-cyan shrink-0 mt-0.5" />
-                  <span>Botão de IA Flutuante (Integração nativa entre site e o seu assistente).</span>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Filtro de curiosos.</span>
                 </li>
               </ul>
             </div>
 
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-slate-400 text-sm">Setup:</span>
-                <span className="text-primary-cyan font-bold">R$ 1.997</span>
-                <span className="text-slate-500 text-xs">(Pagamento único)</span>
+                <span className="text-slate-400 text-sm">Implantação:</span>
+                <span className="text-white font-bold">R$ 1.495</span>
               </div>
-              <div className="flex items-end gap-2 flex-wrap sm:flex-nowrap">
-                <span className="text-slate-400 text-sm mb-1">Manutenção:</span>
-                <span className="text-3xl font-extrabold text-white">R$ 397</span>
-                <span className="text-slate-400 text-xs mb-1.5 whitespace-nowrap">/mês <span className="hidden sm:inline">(IA + Hospedagem)</span></span>
+              <div className="flex items-end gap-2">
+                <span className="text-3xl font-extrabold text-white">R$ 279</span>
+                <span className="text-slate-400 text-xs mb-1.5">/mês</span>
               </div>
-              <div className="text-slate-400 text-xs sm:hidden mt-2">(IA + Hospedagem do Site)</div>
             </div>
 
             <a
               href="#"
-              className="block w-full text-center bg-gradient-primary hover:opacity-90 text-white py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-primary-cyan/20"
+              className="block w-full text-center bg-transparent border border-pink-500 hover:bg-pink-500/10 text-pink-400 py-4 rounded-xl font-bold text-sm transition-all"
             >
-              Quero o Ecossistema Completo
+              Quero a Iara no meu WhatsApp
+            </a>
+          </div>
+
+          {/* Card 3: Iara 360º */}
+          <div className="glass-card flex flex-col p-8 border-2 border-pink-500 hover:border-pink-400 transition-colors shadow-2xl shadow-pink-500/20 relative bg-[#1A1025]/80 h-full lg:scale-105">
+            {/* Badge */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-rose-400 text-white text-xs font-bold px-5 py-2 rounded-full uppercase tracking-wider shadow-lg shadow-pink-500/20 whitespace-nowrap border border-white/10">
+              Melhor Custo-Benefício
+            </div>
+
+            <h3 className="text-2xl font-bold text-white mb-2 pt-2">Iara 360º</h3>
+            <p className="text-pink-300 text-sm font-medium mb-6">Atendimento no WhatsApp + Site focado em vendas.</p>
+
+            <div className="mb-6 flex-1">
+              <p className="text-sm font-bold text-white mb-4">O que está incluso:</p>
+              <ul className="space-y-4">
+                <li className="flex gap-3 text-white text-sm font-semibold p-3 bg-pink-500/10 rounded-lg border border-pink-500/20 items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Tudo do Iara Essencial +</span>
+                </li>
+                <li className="flex gap-3 text-white text-sm font-semibold p-3 bg-pink-500/10 rounded-lg border border-pink-500/20 items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Tudo da Página Essencial +</span>
+                </li>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Otimização para receber anúncios (Google/Meta).</span>
+                </li>
+                <li className="flex gap-3 text-slate-300 text-sm items-start">
+                  <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                  <span>Setup prioritário.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="border-t border-white/10 pt-6 mb-8">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-slate-400 text-sm">Implantação:</span>
+                <span className="text-white font-bold">R$ 1.995</span>
+              </div>
+              <div className="flex items-end gap-2">
+                <span className="text-3xl font-extrabold text-white">R$ 349</span>
+                <span className="text-slate-400 text-xs mb-1.5">/mês</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              className="block w-full text-center bg-gradient-to-r from-pink-500 to-rose-400 hover:opacity-90 text-white py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-pink-500/20"
+            >
+              Quero a Solução Completa
             </a>
           </div>
         </div>
 
         <div className="mt-16 text-center text-slate-400 text-sm flex flex-col sm:flex-row items-center justify-center gap-3 max-w-3xl mx-auto glass p-6 rounded-2xl border border-white/5">
-          <Zap className="w-6 h-6 text-green-whatsapp shrink-0" />
+          <Zap className="w-6 h-6 text-pink-500 shrink-0" />
           <p className="leading-relaxed"><strong>Sem fidelidade:</strong> cancele quando quiser. <br className="sm:hidden" /> Custos de API da OpenAI já inclusos nos planos.</p>
         </div>
 
@@ -438,13 +492,13 @@ function Footer() {
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1 flex flex-col gap-2">
-            <span className="font-bold text-sm text-white tracking-tight">Acelera<span className="text-gradient">Bot</span></span>
-            <p className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">© {new Date().getFullYear()} AceleraBot</p>
+            <span className="font-bold text-sm text-white tracking-tight">Iara</span>
+            <p className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">© {new Date().getFullYear()} Iara</p>
             <p className="text-[10px] text-slate-500">Tecnologia para negócios locais</p>
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold text-white">Pricing</p>
-            <p className="text-[10px] text-slate-400">Único: R$ 997 | Mensal: R$ 297</p>
+            <p className="text-[10px] text-slate-400">Planos de Automação e Sites</p>
           </div>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold text-white">Legal</p>
