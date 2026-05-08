@@ -6,7 +6,7 @@
 import {
   Bot, MessageSquareWarning, Filter, BellRing,
   ChevronDown, Smartphone, ArrowRight, Check,
-  Settings, Zap, PhoneCall, Sparkles, User
+  Settings, Zap, PhoneCall, Sparkles, User, Calendar
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
@@ -122,7 +122,7 @@ function HeroSection() {
               </h1>
 
               <p className="text-lg sm:text-xl text-purple-100/70 mb-10 leading-relaxed max-w-2xl font-light">
-                Conheça a Iara: sua atendente virtual 100% personalizável. Ela aprende o jeito da sua empresa falar, atende em segundos e entrega clientes prontos para fechar negócio.
+                Conheça a Iara: sua atendente virtual 100% personalizável. Ela atende em segundos, tira dúvidas sobre seus serviços e agenda compromissos diretamente no seu Google Calendar.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-2">
@@ -145,20 +145,40 @@ function HeroSection() {
               className="relative w-full bg-[#1A1025]/60 backdrop-blur-xl p-6 rounded-3xl border border-purple-500/20 shadow-2xl shadow-purple-900/50"
             >
               <div className="flex flex-col gap-5">
-                {/* User Message */}
+                {/* User Message 1 */}
                 <div className="flex gap-3 items-end">
                   <div className="w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center flex-shrink-0 border border-white/5">
                     <User className="w-4 h-4 text-slate-300" />
                   </div>
-                  <div className="bg-slate-800/80 border border-white/5 p-4 rounded-2xl rounded-bl-sm text-sm leading-relaxed text-slate-200 shadow-sm max-w-[85%]">
-                    "Bom dia! Gostaria de agendar uma consulta para amanhã na parte da tarde. Tem algum horário?"
+                  <div className="bg-slate-800/80 border border-white/5 p-3 rounded-2xl rounded-bl-sm text-sm leading-relaxed text-slate-200 shadow-sm max-w-[85%]">
+                    "Quero agendar um horário amanhã à tarde."
                   </div>
                 </div>
 
-                {/* Iara Message */}
+                {/* Iara Message 1 */}
                 <div className="flex gap-3 items-end justify-end">
-                  <div className="bg-gradient-to-br from-rose-950/60 to-purple-950/60 border border-pink-500/20 p-4 rounded-2xl rounded-br-sm text-sm leading-relaxed text-pink-50 shadow-sm max-w-[85%]">
-                    "Olá! Aqui é a Iara, assistente virtual da clínica. Temos horários disponíveis amanhã às 14h e às 16h30. Qual fica melhor para você?"
+                  <div className="bg-gradient-to-br from-rose-950/60 to-purple-950/60 border border-pink-500/20 p-3 rounded-2xl rounded-br-sm text-sm leading-relaxed text-pink-50 shadow-sm max-w-[85%]">
+                    "Olá! Tenho horários às 14h e 16h30. Qual prefere?"
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-400 flex-shrink-0 shadow-lg shadow-pink-500/30 flex items-center justify-center font-bold text-white text-sm border border-white/20">
+                    I
+                  </div>
+                </div>
+
+                {/* User Message 2 */}
+                <div className="flex gap-3 items-end">
+                  <div className="w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center flex-shrink-0 border border-white/5">
+                    <User className="w-4 h-4 text-slate-300" />
+                  </div>
+                  <div className="bg-slate-800/80 border border-white/5 p-3 rounded-2xl rounded-bl-sm text-sm leading-relaxed text-slate-200 shadow-sm max-w-[85%]">
+                    "Às 14h, por favor."
+                  </div>
+                </div>
+
+                {/* Iara Message 2 */}
+                <div className="flex gap-3 items-end justify-end">
+                  <div className="bg-gradient-to-br from-rose-950/60 to-purple-950/60 border border-pink-500/20 p-3 rounded-2xl rounded-br-sm text-sm leading-relaxed text-pink-50 shadow-sm max-w-[85%]">
+                    "Agendado! Já adicionei na agenda do Google da clínica. Posso ajudar com mais algo?"
                   </div>
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-400 flex-shrink-0 shadow-lg shadow-pink-500/30 flex items-center justify-center font-bold text-white text-sm border border-white/20">
                     I
@@ -166,19 +186,19 @@ function HeroSection() {
                 </div>
 
                 {/* Notification Card */}
-                <div className="mt-2 p-4 bg-[#1A1025]/80 rounded-2xl border-l-4 border-rose-400 border-t border-r border-b border-white/5 shadow-2xl relative overflow-hidden group">
+                <div className="mt-2 p-3 bg-[#1A1025]/80 rounded-2xl border-l-4 border-rose-400 border-t border-r border-b border-white/5 shadow-2xl relative overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-r from-rose-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10 flex items-start gap-3">
                     <div className="bg-rose-500/20 p-2 rounded-lg">
-                      <Zap className="w-5 h-5 text-rose-400 fill-rose-400/20" />
+                      <Calendar className="w-5 h-5 text-rose-400" />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white flex items-center gap-1.5">
-                        <span className="text-lg">🔥</span> Novo Agendamento: Maria
+                        <span className="text-lg">📅</span> Novo Agendamento: Maria
                       </p>
                       <p className="text-xs text-purple-200/60 mt-1 flex items-center gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Status: Horário Confirmado.
+                        Status: Salvo no Google Calendar.
                       </p>
                     </div>
                   </div>
@@ -201,9 +221,9 @@ function FeaturesSection() {
       description: "A IA entende áudios e textos informais como um humano faria, sem menus chatos."
     },
     {
-      icon: <Filter className="w-5 h-5 text-green-400" />,
-      title: "Qualificação de Leads",
-      description: "Faz as perguntas certas (modelo, serviço, urgência) antes de notificar você."
+      icon: <Calendar className="w-5 h-5 text-green-400" />,
+      title: "Integração Google Agenda",
+      description: "A Iara tem acesso em tempo real à sua disponibilidade e salva os agendamentos direto no seu calendário."
     },
     {
       icon: <BellRing className="w-5 h-5 text-green-400" />,
@@ -252,7 +272,7 @@ function HowItWorksSection() {
   const steps = [
     { num: "01.", title: "Conectamos", desc: "Conectamos nosso sistema ao número do seu WhatsApp sem burocracia." },
     { num: "02.", title: "Treinamos", desc: "Enviamos para a IA o cérebro da sua empresa com horários e serviços." },
-    { num: "03.", title: "Triamos", desc: "A IA assume o primeiro atendimento e você recebe os leads mastigados." }
+    { num: "03.", title: "Agendamos", desc: "A IA assume o atendimento, esclarece dúvidas e marca os horários direto na sua agenda." }
   ];
 
   return (
@@ -361,7 +381,7 @@ function PricingSection() {
                 </li>
                 <li className="flex gap-3 text-slate-300 text-sm items-start">
                   <Check className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
-                  <span>Filtro de curiosos.</span>
+                  <span>Sincronização com Google Calendar.</span>
                 </li>
               </ul>
             </div>
