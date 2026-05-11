@@ -3,10 +3,10 @@
 
 @theme {
   --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --color-primary-purple: #f43f5e;
-  --color-primary-cyan: #fdba74;
+  --color-primary-purple: #8b5cf6;
+  --color-primary-cyan: #3b82f6;
   --color-brand-navy: #1A1025;
-  --color-accent-teal: #f472b6;
+  --color-accent-teal: #06b6d4;
   --color-green-whatsapp: #22c55e;
 }
 
