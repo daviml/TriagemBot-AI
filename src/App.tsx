@@ -11,9 +11,9 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 
-const AceleraBotText = ({ className = "" }: { className?: string }) => (
+const AceleraAssistenteText = ({ className = "" }: { className?: string }) => (
   <span className={`inline-flex items-center font-display ${className}`}>
-    <span className="text-gradient font-bold tracking-tight">Acelera</span>Bot
+    <span className="text-gradient font-bold tracking-tight">Acelera</span>Assistente
   </span>
 );
 
@@ -69,7 +69,7 @@ function Navbar() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-violet-500/10 flex items-center justify-center border border-blue-500/30 shadow-inner">
               <Sparkles className="w-5 h-5 text-blue-400" />
             </div>
-            <AceleraBotText className="font-semibold text-xl text-white tracking-tight" />
+            <AceleraAssistenteText className="font-semibold text-xl text-white tracking-tight" />
           </div>
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -122,7 +122,7 @@ function HeroSection() {
               </h1>
 
               <p className="text-lg sm:text-xl text-purple-100/70 mb-10 leading-relaxed max-w-2xl font-light">
-                Conheça o AceleraBot: sua atendente virtual 100% personalizável. Ela atende em segundos, tira dúvidas sobre seus serviços e agenda compromissos diretamente no seu Google Calendar.
+                Conheça o AceleraAssistente: sua atendente virtual 100% personalizável. Ela atende em segundos, tira dúvidas sobre seus serviços e agenda compromissos diretamente no seu Google Calendar.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-2">
@@ -130,7 +130,7 @@ function HeroSection() {
                   href="#testar"
                   className="bg-gradient-primary hover:scale-[1.02] hover:shadow-primary-neon/40 text-black px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl shadow-primary-neon/20 flex items-center justify-center gap-2 group"
                 >
-                  Conhecer o AceleraBot na prática
+                  Conhecer o AceleraAssistente na prática
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
@@ -155,7 +155,7 @@ function HeroSection() {
                   </div>
                 </div>
 
-                {/* AceleraBot Message 1 */}
+                {/* AceleraAssistente Message 1 */}
                 <div className="flex gap-3 items-end justify-end">
                   <div className="bg-gradient-to-br from-blue-950/60 to-purple-950/60 border border-blue-500/20 p-3 rounded-2xl rounded-br-sm text-sm leading-relaxed text-blue-50 shadow-sm max-w-[85%]">
                     "Olá! Tenho horários às 14h e 16h30. Qual prefere?"
@@ -175,7 +175,7 @@ function HeroSection() {
                   </div>
                 </div>
 
-                {/* AceleraBot Message 2 */}
+                {/* AceleraAssistente Message 2 */}
                 <div className="flex gap-3 items-end justify-end">
                   <div className="bg-gradient-to-br from-blue-950/60 to-purple-950/60 border border-blue-500/20 p-3 rounded-2xl rounded-br-sm text-sm leading-relaxed text-blue-50 shadow-sm max-w-[85%]">
                     "Agendado! Já adicionei na agenda do Google da clínica. Posso ajudar com mais algo?"
@@ -223,7 +223,7 @@ function FeaturesSection() {
     {
       icon: <Calendar className="w-5 h-5 text-green-400" />,
       title: "Integração Google Agenda",
-      description: "O AceleraBot tem acesso em tempo real à sua disponibilidade e salva os agendamentos direto no seu calendário."
+      description: "O AceleraAssistente tem acesso em tempo real à sua disponibilidade e salva os agendamentos direto no seu calendário."
     },
     {
       icon: <BellRing className="w-5 h-5 text-green-400" />,
@@ -238,10 +238,10 @@ function FeaturesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Chatbots tradicionais irritam seus clientes. <br className="hidden sm:block" />
-            <span className="text-gradient">O AceleraBot é diferente.</span>
+            <span className="text-gradient">O AceleraAssistente é diferente.</span>
           </h2>
           <p className="text-base text-purple-100/60 leading-relaxed font-light">
-            Totalmente moldável ao seu negócio, o AceleraBot usa linguagem natural para conversar, entender a real necessidade e filtrar curiosos, com a mesma educação de um humano.
+            Totalmente moldável ao seu negócio, o AceleraAssistente usa linguagem natural para conversar, entender a real necessidade e filtrar curiosos, com a mesma educação de um humano.
           </p>
         </div>
 
@@ -359,9 +359,9 @@ function PricingSection() {
             </a>
           </div>
 
-          {/* Card 2: AceleraBot Essencial */}
+          {/* Card 2: AceleraAssistente Essencial */}
           <div className="glass-card flex flex-col p-8 border-2 border-white/5 hover:border-blue-500/30 transition-colors shadow-xl bg-[#1A1025]/40 h-full">
-            <h3 className="text-2xl font-bold text-white mb-2">AceleraBot Essencial</h3>
+            <h3 className="text-2xl font-bold text-white mb-2">AceleraAssistente Essencial</h3>
             <p className="text-purple-300 text-sm font-medium mb-6">A sua nova recepcionista no WhatsApp.</p>
 
             <div className="mb-6 flex-1">
@@ -401,18 +401,18 @@ function PricingSection() {
               href="#"
               className="block w-full text-center bg-transparent border border-blue-500 hover:bg-blue-500/10 text-blue-400 py-4 rounded-xl font-bold text-sm transition-all"
             >
-              Quero o AceleraBot no meu WhatsApp
+              Quero o AceleraAssistente no meu WhatsApp
             </a>
           </div>
 
-          {/* Card 3: AceleraBot 360º */}
+          {/* Card 3: AceleraAssistente 360º */}
           <div className="glass-card flex flex-col p-8 border-2 border-blue-500 hover:border-blue-400 transition-colors shadow-2xl shadow-blue-500/20 relative bg-[#1A1025]/80 h-full lg:scale-105">
             {/* Badge */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-primary text-black text-xs font-bold px-5 py-2 rounded-full uppercase tracking-wider shadow-lg shadow-primary-neon/20 whitespace-nowrap border border-white/10">
               Melhor Custo-Benefício
             </div>
 
-            <h3 className="text-2xl font-bold text-white mb-2 pt-2">AceleraBot 360º</h3>
+            <h3 className="text-2xl font-bold text-white mb-2 pt-2">AceleraAssistente 360º</h3>
             <p className="text-blue-300 text-sm font-medium mb-6">Atendimento no WhatsApp + Site focado em vendas.</p>
 
             <div className="mb-6 flex-1">
@@ -420,7 +420,7 @@ function PricingSection() {
               <ul className="space-y-4">
                 <li className="flex gap-3 text-white text-sm font-semibold p-3 bg-blue-500/10 rounded-lg border border-blue-500/20 items-start">
                   <Check className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                  <span>Tudo do AceleraBot Essencial +</span>
+                  <span>Tudo do AceleraAssistente Essencial +</span>
                 </li>
                 <li className="flex gap-3 text-white text-sm font-semibold p-3 bg-blue-500/10 rounded-lg border border-blue-500/20 items-start">
                   <Check className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
@@ -512,8 +512,8 @@ function Footer() {
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1 flex flex-col gap-2">
-            <span className="font-bold text-sm text-white tracking-tight">AceleraBot</span>
-            <p className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">© {new Date().getFullYear()} AceleraBot</p>
+            <span className="font-bold text-sm text-white tracking-tight">AceleraAssistente</span>
+            <p className="text-[10px] uppercase tracking-widest mt-1 text-slate-500">© {new Date().getFullYear()} AceleraAssistente</p>
             <p className="text-[10px] text-slate-500">Tecnologia para negócios locais</p>
           </div>
           <div className="flex flex-col gap-2">
