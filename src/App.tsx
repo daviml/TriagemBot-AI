@@ -343,7 +343,7 @@ function PricingSection() {
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-slate-400 text-sm">Implantação:</span>
-                <span className="text-white font-bold">R$ 995</span>
+                <span className="text-white font-bold">R$ 497</span>
               </div>
               <div className="flex items-end gap-2">
                 <span className="text-3xl font-extrabold text-white">R$ 99</span>
@@ -389,10 +389,10 @@ function PricingSection() {
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-slate-400 text-sm">Implantação:</span>
-                <span className="text-white font-bold">R$ 1.495</span>
+                <span className="text-white font-bold">R$ 697 </span>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-3xl font-extrabold text-white">R$ 279</span>
+                <span className="text-3xl font-extrabold text-white">R$ 197</span>
                 <span className="text-slate-400 text-xs mb-1.5">/mês</span>
               </div>
             </div>
@@ -440,10 +440,10 @@ function PricingSection() {
             <div className="border-t border-white/10 pt-6 mb-8">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-slate-400 text-sm">Implantação:</span>
-                <span className="text-white font-bold">R$ 1.995</span>
+                <span className="text-white font-bold">R$ 997 </span>
               </div>
               <div className="flex items-end gap-2">
-                <span className="text-3xl font-extrabold text-white">R$ 349</span>
+                <span className="text-3xl font-extrabold text-white">R$ 297 </span>
                 <span className="text-slate-400 text-xs mb-1.5">/mês</span>
               </div>
             </div>
