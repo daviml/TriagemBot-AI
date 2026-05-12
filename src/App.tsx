@@ -12,8 +12,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 
 const AceleraBotText = ({ className = "" }: { className?: string }) => (
-  <span className={`inline-flex items-center ${className}`}>
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-500 font-bold tracking-tight">Acelera</span>Bot
+  <span className={`inline-flex items-center font-display ${className}`}>
+    <span className="text-gradient font-bold tracking-tight">Acelera</span>Bot
   </span>
 );
 
@@ -88,7 +88,7 @@ function Navbar() {
           <div>
             <a
               href="#testar"
-              className="bg-gradient-to-r from-blue-600 to-violet-500 hover:opacity-90 text-white px-4 sm:px-6 py-2.5 rounded-full font-medium text-xs sm:text-sm transition-all shadow-lg shadow-blue-500/25 whitespace-nowrap"
+              className="bg-gradient-primary hover:opacity-90 text-black px-4 sm:px-6 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all shadow-lg shadow-primary-neon/25 whitespace-nowrap"
             >
               Testar Agora
             </a>
@@ -117,8 +117,8 @@ function HeroSection() {
                 <span>CONHEÇA SUA NOVA RECEPCIONISTA DIGITAL</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] mb-6 text-white pt-2">
-                Pare de perder vendas porque seu <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-500">WhatsApp</span> demora para responder.
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] mb-6 text-white pt-2">
+                Pare de perder vendas porque seu <span className="text-gradient">WhatsApp</span> demora para responder.
               </h1>
 
               <p className="text-lg sm:text-xl text-purple-100/70 mb-10 leading-relaxed max-w-2xl font-light">
@@ -128,7 +128,7 @@ function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-4 mb-2">
                 <a
                   href="#testar"
-                  className="bg-gradient-to-r from-blue-600 to-violet-500 hover:scale-[1.02] hover:shadow-blue-500/40 text-white px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 group"
+                  className="bg-gradient-primary hover:scale-[1.02] hover:shadow-primary-neon/40 text-black px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl shadow-primary-neon/20 flex items-center justify-center gap-2 group"
                 >
                   Conhecer o AceleraBot na prática
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -160,7 +160,7 @@ function HeroSection() {
                   <div className="bg-gradient-to-br from-blue-950/60 to-purple-950/60 border border-blue-500/20 p-3 rounded-2xl rounded-br-sm text-sm leading-relaxed text-blue-50 shadow-sm max-w-[85%]">
                     "Olá! Tenho horários às 14h e 16h30. Qual prefere?"
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-violet-500 flex-shrink-0 shadow-lg shadow-blue-500/30 flex items-center justify-center font-bold text-white text-sm border border-white/20">
+                  <div className="w-8 h-8 rounded-full bg-gradient-primary flex-shrink-0 shadow-lg shadow-primary-neon/30 flex items-center justify-center font-bold text-black text-sm border border-white/20">
                     A
                   </div>
                 </div>
@@ -180,7 +180,7 @@ function HeroSection() {
                   <div className="bg-gradient-to-br from-blue-950/60 to-purple-950/60 border border-blue-500/20 p-3 rounded-2xl rounded-br-sm text-sm leading-relaxed text-blue-50 shadow-sm max-w-[85%]">
                     "Agendado! Já adicionei na agenda do Google da clínica. Posso ajudar com mais algo?"
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-violet-500 flex-shrink-0 shadow-lg shadow-blue-500/30 flex items-center justify-center font-bold text-white text-sm border border-white/20">
+                  <div className="w-8 h-8 rounded-full bg-gradient-primary flex-shrink-0 shadow-lg shadow-primary-neon/30 flex items-center justify-center font-bold text-black text-sm border border-white/20">
                     A
                   </div>
                 </div>
@@ -238,7 +238,7 @@ function FeaturesSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Chatbots tradicionais irritam seus clientes. <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-500">O AceleraBot é diferente.</span>
+            <span className="text-gradient">O AceleraBot é diferente.</span>
           </h2>
           <p className="text-base text-purple-100/60 leading-relaxed font-light">
             Totalmente moldável ao seu negócio, o AceleraBot usa linguagem natural para conversar, entender a real necessidade e filtrar curiosos, com a mesma educação de um humano.
@@ -408,7 +408,7 @@ function PricingSection() {
           {/* Card 3: AceleraBot 360º */}
           <div className="glass-card flex flex-col p-8 border-2 border-blue-500 hover:border-blue-400 transition-colors shadow-2xl shadow-blue-500/20 relative bg-[#1A1025]/80 h-full lg:scale-105">
             {/* Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-violet-500 text-white text-xs font-bold px-5 py-2 rounded-full uppercase tracking-wider shadow-lg shadow-blue-500/20 whitespace-nowrap border border-white/10">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-primary text-black text-xs font-bold px-5 py-2 rounded-full uppercase tracking-wider shadow-lg shadow-primary-neon/20 whitespace-nowrap border border-white/10">
               Melhor Custo-Benefício
             </div>
 
@@ -450,7 +450,7 @@ function PricingSection() {
 
             <a
               href="#"
-              className="block w-full text-center bg-gradient-to-r from-blue-600 to-violet-500 hover:opacity-90 text-white py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-500/20"
+              className="block w-full text-center bg-gradient-primary hover:opacity-90 text-black py-4 rounded-full font-bold text-sm transition-all shadow-lg shadow-primary-neon/20"
             >
               Quero a Solução Completa
             </a>
